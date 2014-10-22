@@ -21,7 +21,7 @@ public abstract class BasicBaddie implements Baddie {
     double hp;
     public static double MOVE_SPEED = .002;
     public static int BASIC_BADDIE_SIZE = 4; //is "radius" or 1/2 of length side if rectangular
-    public static Color BASIC_BADDIE_COLOR = Color.RED;
+    public static Color myColor;
     public static double INITIAL_HP = 400;
     public static double MY_AOE = 100;
     World w;
@@ -75,8 +75,12 @@ public abstract class BasicBaddie implements Baddie {
 
     @Override
     public void drawSelf(Graphics g) {
-        g.setColor(BASIC_BADDIE_COLOR);
+        g.setColor(myColor);
         g.fillOval((int) posn.x, (int) posn.y, BASIC_BADDIE_SIZE, BASIC_BADDIE_SIZE);
+    }
+    
+    public void setColor(Color c) {
+        myColor = c;
     }
 
     @Override
